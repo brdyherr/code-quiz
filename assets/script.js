@@ -7,6 +7,11 @@ var correctCount = 0;
 var incorrectCount = 0;
 var startButton = $("#submit");
 startButton.click(startGame);
+var totalTime = 75;
+function startTimer(countDown) {
+  totalTime--;
+  $("#totalTime").text(totalTime);
+}
 // THEN a timer starts and I am presented with a question
 var questions = [
   {
@@ -109,16 +114,17 @@ function clickAnswer(answerChoice) {
 var _log = (str) => {
   console.log(str);
 };
+
 function startGame() {
   questionNum = 0;
-  timer = setInterval(startTimer, 5000);
+  timer = setInterval(startTimer, 1000);
 }
 
 function stopTimer() {
   clearInterval(timer);
 }
 
-function startTimer() {
+function changeQuestion() {
   createQuestion(questionNum);
   if (questionNum + 1 == questions.length) {
     stopTimer();
