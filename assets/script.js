@@ -1,17 +1,18 @@
-// Timer that counts down from 75 seconds
+// WHEN I answer a question
+// THEN I am presented with another question
+// WHEN I answer a question incorrectly
+// THEN time is subtracted from the clock
+// WHEN all questions are answered or the timer reaches 0
+// THEN the game is over
+// WHEN the game is over
+// THEN I can save my initials and score
+// The quiz will start with a score of 0.
 
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
 var correctCount = 0;
-
 var incorrectCount = 0;
 var startButton = $("#submit");
-startButton.click(startGame);
 var totalTime = 75;
-function startTimer(countDown) {
-  totalTime--;
-  $("#totalTime").text(totalTime);
-}
+
 // THEN a timer starts and I am presented with a question
 var questions = [
   {
@@ -47,23 +48,41 @@ var questions = [
     answer: "console.log",
   },
 ];
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and score
 
-// The quiz will start with a score of 0.
 var score = 0;
 var questionNum = 0;
-var gameOver = false;
 var timer;
 
+startButton.click(startGame);
+$("#results button").click(saveScore);
+$("#results").hide();
+
+// save initials, get the score, feedback to user
+function saveScore() {
+  var initials = $("#results input").val();
+  var score = $("#results input + input").val();
+  localStorage.setItem(initials, score);
+  alert("Saved!");
+}
+
+function endGame() {
+  var score = (100 * correctCount) / (correctCount + incorrectCount);
+  $("#questions").html(`Your score is ${score}%`);
+  $("#results input").val("");
+  $("#results input + input").val(score);
+  $("#results").show();
+}
+
+function startTimer(countDown) {
+  totalTime--;
+  $("#totalTime").text(totalTime);
+  if (totalTime <= 0) {
+    stopTimer();
+    endGame();
+  }
+}
 function createQuestion(questNum) {
-  $("#questions").html(null);
+  $("#questions").empty();
   let questionObj = questions[questNum];
   let questionHtml = $("<div>");
 
@@ -75,7 +94,6 @@ function createQuestion(questNum) {
   // adding the choices for the question
   let list = $("<ol>");
 
-  questionHtml.append(title);
   for (let i = 0; i < questionObj.choices.length; i++) {
     let listItem = $("<li>");
     listItem.click(function () {
@@ -97,14 +115,15 @@ function clickAnswer(answerChoice) {
   } else {
     incorrectCount++;
     _log("incorrect");
+    totalTime -= 5;
   }
   if (questionNum == questions.length - 1) {
     // last question
     _log(
       `Here is your score CORRECT and INCORRECT ${correctCount} ${incorrectCount}`
     );
-    gameOver = true;
     stopTimer();
+    endGame();
   } else {
     questionNum++;
     createQuestion(questionNum);
@@ -116,8 +135,13 @@ var _log = (str) => {
 };
 
 function startGame() {
+  $("#results").hide();
   questionNum = 0;
+  correctCount = 0;
+  incorrectCount = 0;
+  totalTime = 75;
   timer = setInterval(startTimer, 1000);
+  changeQuestion();
 }
 
 function stopTimer() {
@@ -128,6 +152,7 @@ function changeQuestion() {
   createQuestion(questionNum);
   if (questionNum + 1 == questions.length) {
     stopTimer();
+    endGame();
   }
   questionNum++;
 }
