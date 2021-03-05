@@ -16,29 +16,41 @@
       <div class="container px-4">
         <div class="row gx-5">
           <div class="col">
-            <div class="p-3 border bg-light score">
-              Very High Scores <input disabled />
+            <div>
+              Very High Scores
+              <div class="p-3 border bg-light score">
+                <input disabled />
+              </div>
             </div>
           </div>
           <div class="col">
-            <div class="p-3 border bg-light" id="totalTime">Time</div>
+            <div>
+              Time
+              <div class="p-3 border bg-light" id="totalTime">75</div>
+            </div>
           </div>
         </div>
       </div>
     </header>
-    <div id="quiz">Coding Quiz Challenge</div>
-    <button class="btn" id="submit">Start Quiz</button>
-    <div id="questions"></div>
-    <div id="results">
-      <div>
-        Enter Initials
-        <input type="text" />
-        <input disabled />
+    <div class="container">
+      <div id="quiz">Coding Quiz Challenge</div>
+      <button type="button" class="btn btn-outline-secondary" id="submit">
+        Start Quiz
+      </button>
+      <div id="questions"></div>
+      <div id="results">
+        <div>
+          Enter Initials
+          <input type="text" />
+          <input disabled />
+        </div>
+        <!-- add click event listener to read text from input and use local storage to save initials and score -->
+        <button type="button" class="btn btn-outline-secondary">
+          Save Score
+        </button>
       </div>
-      <!-- add click event listener to read text from input and use local storage to save initials and score -->
-      <button class="btn">Save Score</button>
     </div>
-    <footer></footer>
+    <footer class="body"></footer>
     <script src="./assets/script.js"></script>
   </body>
 </html>

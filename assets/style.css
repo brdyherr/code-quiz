@@ -1,35 +1,11 @@
-.head {
-  display: inline-block;
-  font: bold black;
-  background-color: rgb(235, 235, 245);
-  justify-content: center;
-}
-li {
-  border-right: 1px solid #bbb;
+.container {
+  font-style: italic;
+  font-weight: 400;
 }
 
-li:last-child {
-  border-right: none;
+#questions {
+  font-style: italic;
 }
-
-.btn {
-  outline: none;
-  border: solid;
-  display: inline-block;
-  padding: 10px 15px;
-  background: var(--primary);
-  font-size: 1rem;
-  border-radius: 12px;
-  position: relative;
-  /* top: -3px;
-  box-shadow: 0 3px var(--grey); */
-}
-
-.btn:hover {
-  box-shadow: 0 2px var(--grey);
-  top: -2px;
-}
-.btn:active {
-  box-shadow: 0 0px var(--grey);
-  top: 0;
+#totalTime {
+  font-style: bold;
 }

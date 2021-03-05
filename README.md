@@ -9,6 +9,7 @@ This is a simple JavaScript fundamentals quiz to test ones' knowledge.
 - HTML
 - CSS
 - JavaScript
+- Bootstrap
 
 ## Quiz Links
 
