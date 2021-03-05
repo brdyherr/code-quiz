@@ -8,20 +8,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
-    <header>
+    <header class="head">
       <h5>Very high scores</h5>
       <ul id="totalTime">
         Time
       </ul>
     </header>
     <div id="quiz">Coding Quiz Challenge</div>
-    <button id="submit">Start Quiz</button>
+    <button class="btn" id="submit">Start Quiz</button>
     <div id="questions"></div>
     <div id="results">
-      <input type="text" />
-      <input disabled/> 
+      <div>
+        Enter Initials
+        <input type="text" />
+        <input disabled />
+      </div>
       <!-- add click event listener to read text from input and use local storage to save initials and score -->
-      <button>Save Score</button>
+      <button class="btn">Save Score</button>
     </div>
     <footer></footer>
     <script src="./assets/script.js"></script>

@@ -115,7 +115,7 @@ function clickAnswer(answerChoice) {
   } else {
     incorrectCount++;
     _log("incorrect");
-    totalTime -= 5;
+    totalTime -= 15;
   }
   if (questionNum == questions.length - 1) {
     // last question
