@@ -6,13 +6,25 @@
     <title>Code Quiz</title>
     <link rel="stylesheet" href="./assets/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
   </head>
   <body>
-    <header class="head">
-      <h5>Very high scores</h5>
-      <ul id="totalTime">
-        Time
-      </ul>
+    <header>
+      <div class="container px-4">
+        <div class="row gx-5">
+          <div class="col">
+            <div class="p-3 border bg-light score">
+              Very High Scores <input disabled />
+            </div>
+          </div>
+          <div class="col">
+            <div class="p-3 border bg-light" id="totalTime">Time</div>
+          </div>
+        </div>
+      </div>
     </header>
     <div id="quiz">Coding Quiz Challenge</div>
     <button class="btn" id="submit">Start Quiz</button>
