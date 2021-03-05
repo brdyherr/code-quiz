@@ -6,7 +6,9 @@ This is a simple JavaScript fundamentals quiz to test ones' knowledge.
 
 ## Technologies Used
 
--
+- HTML
+- CSS
+- JavaScript
 
 ## Quiz Links
 
