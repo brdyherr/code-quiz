@@ -1,6 +1,11 @@
+body {
+  background-color: beige;
+}
+
 .container {
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
+  color: black;
 }
 
 #questions {
@@ -8,4 +13,15 @@
 }
 #totalTime {
   font-style: bold;
+}
+
+.btn {
+  background-color: rgb(80, 49, 255);
+  color: black;
+  font-weight: 500;
+}
+
+.time {
+  color: black;
+  font-weight: 500;
 }
